@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400" prefWidth="600" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mist.ViewController">
+   <children>
+       <TextFlow>
+          <children>
+              <Text text="%info.text" />
+          </children>
+       </TextFlow>
+       <HBox spacing="5">
+          <children>
+              <TextField fx:id="fileTextField" editable="false" promptText="Input BAM" HBox.hgrow="ALWAYS" />
+              <Button fx:id="browseButton" onAction="#selectFile" text="..." />
+          </children>
+       </HBox>
+       <HBox alignment="CENTER_LEFT" spacing="5">
+          <children>
+              <Label text="%threshold" />
+              <TextField fx:id="thresholdTextField" text="10" />
+              <Separator orientation="HORIZONTAL" visible="false" HBox.hgrow="ALWAYS" />
+              <Label text="%length" />
+              <TextField fx:id="lengthTextField" text="1" />
+          </children>
+       </HBox>
+       <Button fx:id="startButton" disable="true" maxWidth="Infinity" onAction="#start" text="%start" />
+       <Label fx:id="message" />
+       <VBox fx:id="progressInfo" spacing="5" visible="false">
+          <children>
+              <HBox alignment="CENTER" spacing="5">
+                 <children>
+                     <ProgressBar fx:id="progressBar" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+                     <Button onAction="#stopTask" text="%stop" />
+                 </children>
+              </HBox>
+            <GridPane hgap="10.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                     <Label text="%matches" GridPane.rowIndex="3" />
+                     <Label text="%position" />
+                     <Label text="%elapsed.time" GridPane.rowIndex="1" />
+                     <Label text="%remaining.time" GridPane.rowIndex="2" />
+                     <Label fx:id="positionLabel" GridPane.columnIndex="1" />
+                     <Label fx:id="elapsedTimeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Label fx:id="remainingTimeLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <Label fx:id="matchesLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+              <HBox spacing="5" />
+          </children>
+       </VBox>
+   </children>
+    <padding>
+        <Insets bottom="5" left="5" right="5" top="5" />
+    </padding>
+</VBox>
